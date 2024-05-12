@@ -1,12 +1,12 @@
 const express = require('express');
-const app = express()
+const app = express();
 
 require('dotenv').config();
-require('./app_api/models/user')
+require('./app_api/models/user');
 
 const passport = require('passport');
 require('./app_api/config/passport');
-app.use(passport.initialize())
+app.use(passport.initialize());
 
 const createError = require('http-errors');
 const path = require('path');
@@ -49,8 +49,10 @@ app.set('view engine', 'hbs');
 handlebars.registerPartials(path.join(__dirname, 'app_server', 'views', 'partials'));
 
 // CORS middleware
-app.use('/api', (res, req, next) => {
-  // CORS headers
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', 'http://localhost:4200');
+  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
+  res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
   next();
 });
 
@@ -66,27 +68,21 @@ app.use('/rooms', roomsRouter);
 app.use('/travel', travelRouter);
 
 // Error handling
+app.use(function(req, res, next) {
+  next(createError(404));
+});
+
 app.use(function(err, req, res, next) {
   console.error(err.stack);
   res.status(500).render('error', { error: err });
 });
 
-app.use('/api', (req, res, next) => {
-  res.header('Access-Control-Allow-Origin', 'http://localhost:4200')
-  res.header('Access-Control-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization')
-  res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE')
-})
-
-app.use((err, req, res, next) => {
+app.use(function(err, req, res, next) {
   if (err.name === 'UnauthorizedError') {
     res.status(401).json({"message": err.name + ": " + err.message});
   } else {
     next(err);
   }
-});
-
-app.use(function(req, res, next) {
-  next(createError(404));
 });
 
 module.exports = app;

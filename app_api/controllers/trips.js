@@ -3,27 +3,23 @@ const Trip = require('../models/travlr')
 const Model = mongoose.model('trips')
 const User = mongoose.model('users')
 
-const getUser = (req, res, callback) => {
-    if (req.payload && req.payload.email) {
-        User
-            .findOne({ email : req.payload.email })
-            .exec((err, user) => {
-                if (!user) {
-                    return res
-                        .status(404)
-                        .json({"message": "User not found"});
-                } else if (err) {
-                    console.log(err);
-                    return res
-                        .status(404)
-                        .json(err);
-                }
-                callback(req, res, user.name);
-            });
-    } else {
-        return res
-            .status(404)
-            .json({"message": "User not found"});
+const getUser = async (req) => {
+    console.error("Payload: ", req.payload);
+    try {
+        if (req.payload && req.payload.email) {
+            const user = await User.findOne({ email: req.payload.email });
+            if (!user) {
+                console.error("User not found");
+                return null; // Return null if user not found
+            }
+            return user;
+        } else {
+            console.error("Email not found in payload");
+            return null; // Return null if email not found
+        }
+    } catch (err) {
+        console.error("Error finding user:", err);
+        throw err; // Throw error for caller to handle
     }
 };
 
@@ -66,33 +62,27 @@ const tripsFindByCode = async(req, res) => {
 }
 
 const tripsAddTrip = async (req, res) => {
-    getUser(req, res,
-        (req, res) => {
-            Trip
-                .create({
-                        code: req.body.code,
-                        name: req.body.name,
-                        length: req.body.length,
-                        start: req.body.start,
-                        resort: req.body.resort,
-                        perPerson: req.body.perPerson,
-                        image: req.body.image,
-                        description: req.body.description
-                    },
-                    (err, trip) => {
-                        if (err) {
-                            return res
-                                .status(400) // bad request
-                                .json(err);
-                        } else {
-                            return res
-                                .status(201) // created
-                                .json(trip);
-                        }
-                    });
+    try {
+        const user = await getUser(req);
+        if (!user) {
+            return res.status(404).json({ message: "User not found" });
         }
-    );
-}
+        const trip = await Trip.create({
+            code: req.body.code,
+            name: req.body.name,
+            length: req.body.length,
+            start: req.body.start,
+            resort: req.body.resort,
+            perPerson: req.body.perPerson,
+            image: req.body.image,
+            description: req.body.description
+        });
+        return res.status(201).json(trip);
+    } catch (err) {
+        console.error("Error adding trip:", err);
+        return res.status(500).json({ message: "Internal server error" });
+    }
+};
 
 const tripsUpdateTrip = async (req, res) => {
     getUser(req, res,
