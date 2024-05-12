@@ -14,7 +14,7 @@
                         <h1>Rooms</h1>
                         <ul id="rooms">
                             {{#each roomsJSON}}
-                                <a href="/rooms"><img src={{this.image}} alt="Img"></a>
+                                <a href="/rooms"><img src="../images/{{this.image}}" alt="Img"></a>
                                 <h2><a href="/rooms">{{this.title}}</a></h2>
                                 <p>{{this.description}}</p>
                                 <span class="rate">Rate: {{this.rate}}/Day</span>

@@ -5,7 +5,7 @@
       {
         "title": "Fried Salmon Special",
         "description": "I'm a product overview. Here you can write more information about your product. Buyers like to know ...",
-        "image": "./../public/images/seafoods.jpg"
+        "image": "seafoods.jpg"
       }
     ]
   },
@@ -15,7 +15,7 @@
       {
         "title": "Choco Ice Cream Sandwich",
         "description": "I'm a product overview. Here you can write more information about your product. Buyers like to know ...",
-        "image": "../../public/images/desserts.jpg"
+        "image": "desserts.jpg"
       }
     ]
   },
@@ -25,7 +25,7 @@
       {
         "title": "Mixed Buffet",
         "description": "I'm a product overview. Here you can write more information about your product. Buyers like to know ...",
-        "image": "../../public/images/buffet.jpg"
+        "image": "buffet.jpg"
       }
     ]
   }

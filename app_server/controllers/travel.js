@@ -1,14 +1,32 @@
-const path = require('path');
-const fs = require('fs');
+//const path = require('path');
+// const fs = require('fs');
+// const tripsPath = path.join(__dirname, '../../data/trips.json');
+// const trips = JSON.parse(fs.readFileSync(tripsPath, 'utf8'));
 
-// Construct an absolute path to trips.json
-const tripsPath = path.join(__dirname, '../../data/trips.json');
+const {message} = require("express");
+const tripsEndpoint = 'http://localhost:3000/api/trips'
+const options = {
+    method: 'GET',
+    headers: {
+        'Accept': 'application/json'
+    }
+}
 
-// Read the JSON file
-const trips = JSON.parse(fs.readFileSync(tripsPath, 'utf8'));
-
-const travel = (req, res) => {
-    res.render('travel', { title: 'Travlr Getaways', trips });
+const travel = async function(req, res, next) {
+    await fetch(tripsEndpoint, options)
+        .then(res => res.json())
+        .then(json => {
+            let message = null
+            if (!(json instanceof Array)) {
+                message = 'API lookup error'
+            } else {
+                if (!json.length) {
+                    message = 'No trips exist in our database!'
+                }
+            }
+            res.render('travel', {title: 'Travlr Getaways', trips: json, message})
+        })
+        .catch(err => res.status(500).send(message))
 }
 
 module.exports = {
