@@ -381,7 +381,7 @@ hr {
 }
 #news div.sidebar h3:first-child {
 	border: 0;
-	padding-top: 0px;
+	padding-top: 0;
 }
 #news div.sidebar ul {
 	list-style: none;
