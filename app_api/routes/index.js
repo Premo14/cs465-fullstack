@@ -22,10 +22,10 @@ router
 
 router
     .route('/register')
-    .post(auth, authController.register)
+    .post(authController.register)
 
 router
     .route('/login')
-    .post(auth, authController.login)
+    .post(authController.login)
 
 module.exports = router

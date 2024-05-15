@@ -56,6 +56,7 @@ const login = (req, res) => {
         }
     })(req, res);
 };
+``
 module.exports = {
     register,
     login
