@@ -13,6 +13,11 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const handlebars = require('hbs');
+const handlebarsHelpers = require('handlebars-helpers'); // Import handlebars-helpers
+
+const helpers = handlebarsHelpers({
+  handlebars: handlebars
+});
 
 const indexRouter = require('./app_server/routes/index');
 const usersRouter = require('./app_server/routes/users');
@@ -39,10 +44,26 @@ app.use(function(req, res, next) {
   next();
 });
 
-// Register handlebars helpers and views
-handlebars.registerHelper('ifCond', function(v1, operator, v2, options) {
-  // Helper implementation
+handlebars.registerHelper('eq', function(arg1, arg2, options) {
+  return arg1 === arg2 ? options.fn(this) : options.inverse(this);
 });
+
+handlebars.registerHelper('ifCond', function(v1, operator, v2, options) {
+  if (options === undefined) {
+    options = v2;
+    v2 = operator;
+    operator = "==";
+  }
+
+  const { fn, inverse } = options;
+  switch (operator) {
+    case '<':
+      return (v1 < v2) ? fn(this) : inverse(this);
+    default:
+      return inverse(this);
+  }
+});
+
 // Set views and partials
 app.set('views', path.join(__dirname, 'app_server', 'views'));
 app.set('view engine', 'hbs');

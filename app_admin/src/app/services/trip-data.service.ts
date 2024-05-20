@@ -1,5 +1,5 @@
 import { Injectable, Inject } from '@angular/core';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import {HttpClient, HttpErrorResponse, HttpHeaders} from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { Trip } from '../models/trip';
@@ -18,6 +18,14 @@ export class TripDataService {
 
   url = 'http://localhost:3000';
 
+  private getAuthHeaders(): HttpHeaders {
+    const token = this.storage.getItem('travlr-token')
+    return new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}`
+    })
+  }
+
   getTrips(): Observable<Trip[]> {
     return this.http.get<Trip[]>(`${this.url}/api/trips`);
   }
@@ -27,11 +35,13 @@ export class TripDataService {
   }
 
   addTrip(formData: Trip): Observable<Trip> {
-    return this.http.post<Trip>(`${this.url}/api/trips`, formData);
+    const headers = this.getAuthHeaders()
+    return this.http.post<Trip>(`${this.url}/api/trips`, formData, {headers});
   }
 
   updateTrip(formData: Trip): Observable<Trip> {
-    return this.http.put<Trip>(`${this.url}/api/trips${formData.code}`, formData);
+    const headers = this.getAuthHeaders()
+    return this.http.put<Trip>(`${this.url}/api/trips/${formData.code}`, formData, {headers});
   }
 
   public login(user: User): Observable<AuthResponse> {
