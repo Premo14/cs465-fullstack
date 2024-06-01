@@ -4,29 +4,47 @@
     "items": [
       {
         "title": "Fried Salmon Special",
-        "description": "I'm a product overview. Here you can write more information about your product. Buyers like to know ...",
-        "image": "seafoods.jpg"
+        "description": "A deliciously crispy fried salmon fillet served with a tangy lemon butter sauce, complemented by a side of garlic mashed potatoes and steamed vegetables. Perfect for seafood lovers looking for a flavorful meal.",
+        "image": "fried_salmon.jpg"
+      },
+      {
+        "title": "Grilled Chicken with Mango Salsa",
+        "description": "Juicy grilled chicken breast topped with a refreshing mango salsa, served with coconut rice and a fresh garden salad. A delightful blend of sweet and savory flavors.",
+        "image": "grilled_chicken.jpg"
       }
-    ]
+    ],
+    "image": "seafoods.jpg"
   },
   {
     "name": "Desserts",
     "items": [
       {
         "title": "Choco Ice Cream Sandwich",
-        "description": "I'm a product overview. Here you can write more information about your product. Buyers like to know ...",
-        "image": "desserts.jpg"
+        "description": "Indulge in our rich chocolate ice cream sandwiched between two freshly baked chocolate chip cookies. A perfect treat for chocolate lovers.",
+        "image": "choco_ice_cream_sandwich.jpg"
+      },
+      {
+        "title": "Lemon Cheesecake",
+        "description": "A creamy lemon cheesecake with a buttery graham cracker crust, topped with a tangy lemon curd and fresh berries. A refreshing end to any meal.",
+        "image": "lemon_cheesecake.jpg"
       }
-    ]
+    ],
+    "image": "desserts.jpg"
   },
   {
     "name": "Buffet",
     "items": [
       {
         "title": "Mixed Buffet",
-        "description": "I'm a product overview. Here you can write more information about your product. Buyers like to know ...",
-        "image": "buffet.jpg"
+        "description": "An extensive buffet featuring a variety of dishes including succulent roast meats, fresh seafood, vibrant salads, and an assortment of desserts. Perfect for those who want to try a little bit of everything.",
+        "image": "mixed_buffet.jpg"
+      },
+      {
+        "title": "Vegetarian Delight Buffet",
+        "description": "A buffet brimming with a variety of vegetarian options including grilled vegetables, savory pastas, hearty soups, and a selection of plant-based desserts. Ideal for vegetarians and health-conscious diners.",
+        "image": "vegetarian_buffet.jpg"
       }
-    ]
+    ],
+    "image": "buffet.jpg"
   }
 ]

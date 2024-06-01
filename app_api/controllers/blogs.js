@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
-const Trip = require('../models/travlr')
-const Model = mongoose.model('trips')
+const Blog = require('../models/blogs')
+const Model = mongoose.model('blogs')
 const User = mongoose.model('users')
 
 const getUser = async (req) => {
@@ -23,15 +23,14 @@ const getUser = async (req) => {
     }
 };
 
-const tripsList = async (req, res) => {
+const blogsList = async (req, res) => {
     const q = await Model
         .find({})
         .exec()
 
-    console.log(q)
+    console.log()
 
-    if(!q)
-    {
+    if (!q) {
         return res
             .status(404)
             .json(err)
@@ -41,10 +40,9 @@ const tripsList = async (req, res) => {
             .json(q)
     }
 }
-
-const tripsFindByCode = async(req, res) => {
+const blogsFindByTitle = async (req, res) => {
     const q = await Model
-        .find({'code': req.params.code})
+        .find({'code': req.params.title})
         .exec()
 
     console.log(q)
@@ -61,62 +59,58 @@ const tripsFindByCode = async(req, res) => {
     }
 }
 
-const tripsAddTrip = async (req, res) => {
+const blogsAddBlog = async (req, res) => {
     try {
-        const user = await getUser(req);
+        const user = await getUser(req)
         if (!user) {
-            return res.status(404).json({ message: "User not found" });
+            return res.status(404).json({ message: "User not found" })
         }
-        const trip = await Trip.create({
-            code: req.body.code,
-            name: req.body.name,
-            length: req.body.length,
-            start: req.body.start,
-            resort: req.body.resort,
-            perPerson: req.body.perPerson,
-            image: req.body.image,
-            description: req.body.description
-        });
-        return res.status(201).json(trip);
+        const blog = await Blog.create({
+            title: req.body.title,
+            date: req.body.date,
+            author: req.body.author,
+            summary: req.body.summary,
+            description: req.body.description,
+            image: req.body.image
+        })
+        return res.status(201).json(blog)
     } catch (err) {
-        console.error("Error adding trip:", err);
-        return res.status(500).json({ message: "Internal server error" });
+        console.error("Error adding blog: ", err)
+        return res.status(500).json({ message: "Internal server error" })
     }
-};
+}
 
-const tripsUpdateTrip = async (req, res) => {
+const blogsUpdateBlog = async (req, res) => {
     getUser(req, res,
         (req, res) => {
-            Trip
-                .findOneAndUpdate({'code': req.params.code },{
-                    code: req.body.code,
-                    name: req.body.name,
-                    length: req.body.length,
-                    start: req.body.start,
-                    resort: req.body.resort,
-                    perPerson: req.body.perPerson,
-                    image: req.body.image,
-                    description: req.body.description
+            Blog
+                .findOneAndUpdate({'title': req.params.title },{
+                    title: req.body.title,
+                    date: req.body.date,
+                    author: req.body.author,
+                    summary: req.body.summary,
+                    description: req.body.description,
+                    image: req.body.image
                 }, { new: true })
-                .then(trip => {
-                    if (!trip) {
+                .then(blog => {
+                    if (!blog) {
                         return res
                             .status(404)
                             .send({
-                                message: "Trip not found with code" + req.params.code
+                                message: "Blog not found with code" + req.params.title
                             });
                     }
-                    res.send(trip);
+                    res.send(blog);
                 }).catch(err => {
                 if (err.kind === 'ObjectId') {
                     return res
                         .status(404)
                         .send({
-                            message: "Trip not found with code" + req.params.code
+                            message: "Blog not found with title" + req.params.title
                         });
                 }
                 return res
-                    .status(500) // server error
+                    .status(500)
                     .json(err);
             });
         }
@@ -124,8 +118,8 @@ const tripsUpdateTrip = async (req, res) => {
 }
 
 module.exports = {
-    tripsList,
-    tripsFindByCode,
-    tripsAddTrip,
-    tripsUpdateTrip
+    blogsList,
+    blogsFindByTitle,
+    blogsAddBlog,
+    blogsUpdateBlog
 }

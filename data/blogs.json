@@ -1,10 +1,42 @@
 [
   {
     "title": "Experience Kayaking!",
-    "date": "April 03, 2023",
+    "date": "2023-04-03T08:00:00Z",
     "author": "Juan De La Cruz",
-    "summary":  "Integer magna leo, posuere et dignissim vitae, porttitor at odio. Pellentesque a metus nec magna placerat volutpat. Nunc nisi mi, elementum sit amet...",
-    "description": "\t\t\t\t\t\t\t\t\tSed et augue lorem. In sit amet placerat arcu. Mauris volutpat ipsum ac justo mollis vel vestibulum orci gravida. Vestibulum sit amet porttitor odio. Nulla facilisi. Fusce at pretium felis. Sed consequat libero ut turpis venenatis ut aliquam risus semper. Etiam convallis mi vel risus pretium sodales. Etiam nunc lorem, ullamcorper vitae laoreet id, rutrum et tortor. Vivamus luctus, lacus id egestas facilisis, nunc nunc ultricies lorem, vitae pulvinar nibh urna vel velit.\n\t\t\t\t\t\t\t\t\tCras dui sapien, feugiat vitae tristique ut, lobortis tempor orci. Donec pulvinar sagittis metus ut tristique. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In hac habitasse platea dictumst. Nulla at nunc sit amet justo cursus imperdiet. Mauris est leo, placerat nec eleifend eu, facilisis id dolor. Donec nisi nibh, elementum vitae imperdiet non, placerat et felis. Maecenas scelerisque odio quis arcu fringilla malesuada. Nulla facilisi. In libero nulla, fermentum ut pretium ac, pharetra et eros.\n\t\t\t\t\t\t\t\t\tPhasellus viverra fringilla lacus, malesuada blandit velit iaculis dignissim. Suspendisse rutrum massa mauris. Donec quis tempus elit.Integer magna leo, posuere et dignissim vitae, porttitor at odio. Pellentesque a metus nec magna placerat volutpat.\n",
+    "summary": "Join us for an exciting kayaking adventure through serene waters and breathtaking landscapes. Whether you're a novice or an expert, this experience is designed to thrill and inspire.",
+    "description": "Discover the joy of kayaking as we navigate through pristine rivers and coastal areas. Our guides will provide all the necessary training and equipment, ensuring a safe and enjoyable journey. You'll have the chance to spot wildlife, enjoy peaceful moments on the water, and challenge yourself with various kayaking techniques. This adventure is perfect for nature lovers and thrill-seekers alike. Reserve your spot today and embark on a memorable aquatic journey!",
     "image": "kayak.jpg"
+  },
+  {
+    "title": "The Ultimate Mountain Biking Guide",
+    "date": "2023-05-15T08:00:00Z",
+    "author": "Alex Morgan",
+    "summary": "Conquer the trails with our comprehensive guide to mountain biking. From selecting the right gear to mastering the toughest terrains, we've got you covered.",
+    "description": "Mountain biking offers an exhilarating way to explore the great outdoors. In this guide, we'll walk you through the essentials of getting started, including bike selection, safety gear, and basic techniques. We'll also share tips on finding the best trails, maintaining your bike, and improving your skills. Whether you're hitting the trails for the first time or looking to enhance your biking prowess, this guide is your ticket to adventure. Get ready to experience the thrill of mountain biking like never before!",
+    "image": "mountain_biking.jpg"
+  },
+  {
+    "title": "A Culinary Journey Through Italy",
+    "date": "2023-06-10T08:00:00Z",
+    "author": "Sophia Rossi",
+    "summary": "Indulge in the rich flavors and traditions of Italian cuisine. From homemade pasta to delectable desserts, join us on a culinary tour that will tantalize your taste buds.",
+    "description": "Italy is renowned for its culinary heritage, and this journey takes you through the heart of its gastronomic traditions. Learn how to make authentic pasta from scratch, explore the art of pairing wines with meals, and discover regional specialties that define Italian cuisine. We'll visit local markets, dine in family-run trattorias, and even enjoy cooking classes with expert chefs. This culinary adventure is a feast for the senses and a deep dive into the culture and history of Italy's beloved food. Buon appetito!",
+    "image": "italy_culinary.jpg"
+  },
+  {
+    "title": "Yoga and Mindfulness Retreat",
+    "date": "2023-07-22T08:00:00Z",
+    "author": "Emma White",
+    "summary": "Rejuvenate your mind and body with our yoga and mindfulness retreat. Find inner peace and balance through guided practices in a tranquil setting.",
+    "description": "Escape the hustle and bustle of daily life and immerse yourself in a serene retreat focused on yoga and mindfulness. Our experienced instructors will guide you through a variety of yoga styles, meditation sessions, and breathing exercises designed to promote relaxation and well-being. Nestled in a peaceful environment, this retreat offers the perfect backdrop for personal growth and self-discovery. Whether you're new to yoga or a seasoned practitioner, you'll leave feeling refreshed, recharged, and inspired. Join us for a transformative experience.",
+    "image": "yoga_retreat.jpg"
+  },
+  {
+    "title": "Exploring the Wonders of Iceland",
+    "date": "2023-08-19T08:00:00Z",
+    "author": "Liam Johnson",
+    "summary": "Embark on an unforgettable adventure through Iceland's stunning landscapes. From geysers to glaciers, discover the natural beauty and unique attractions of this incredible country.",
+    "description": "Iceland is a land of unparalleled natural beauty, featuring dramatic landscapes and unique geological formations. This travel adventure takes you to some of the country's most iconic sights, including the Golden Circle, blue ice caves, and majestic waterfalls. You'll have the opportunity to soak in hot springs, witness the Northern Lights, and explore volcanic craters. Our expert guides will provide fascinating insights into Iceland's history and culture, making this trip both educational and exhilarating. Pack your bags and get ready for an extraordinary journey through the wonders of Iceland!",
+    "image": "iceland.jpg"
   }
 ]

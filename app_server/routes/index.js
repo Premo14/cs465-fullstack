@@ -1,7 +1,7 @@
 let express = require('express');
 let router = express.Router();
-const ctrlMain = require('../controllers/main')
+const controllerMain = require('../controllers/main')
 
-router.get('/', ctrlMain.index);
+router.get('/', controllerMain.index);
 
 module.exports = router;

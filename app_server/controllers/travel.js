@@ -1,8 +1,3 @@
-//const path = require('path');
-// const fs = require('fs');
-// const tripsPath = path.join(__dirname, '../../data/trips.json');
-// const trips = JSON.parse(fs.readFileSync(tripsPath, 'utf8'));
-
 const {message} = require("express");
 const tripsEndpoint = 'http://localhost:3000/api/trips'
 const options = {

@@ -2,19 +2,19 @@
   {
     "title": "First Class Room",
     "image": "first-class.jpg",
-    "description": "Cras dui sapien, feugiat vitae tristique ut, lobortis tempor orci. Donec pulvinar sagittis metus ut tristique. Pellentes que habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas idios.\n",
+    "description": "Experience luxury at its finest in our First Class Room. This spacious room features a king-sized bed, a private balcony with stunning views, a marble bathroom with a jacuzzi tub, and modern amenities to ensure a comfortable stay. Perfect for travelers seeking a premium experience.",
     "rate": 220
   },
   {
     "title": "Deluxe Room",
     "image": "deluxe.jpg",
-    "description": "Sed et augue lorem. In sit amet placerat arcu. Mauris volutpat ipsum ac justo mollis vel vestibulum orci gravida. Vestibulum sit amet porttitor odio. Nulla facilisi. Fusce at pretium felis.\n",
+    "description": "Our Deluxe Room offers a perfect blend of comfort and elegance. Equipped with a queen-sized bed, a cozy seating area, a large flat-screen TV, and a well-appointed bathroom with a rain shower, this room provides all the essentials for a relaxing stay.",
     "rate": 150
   },
   {
     "title": "Suite Room",
     "image": "suite.jpg",
-    "description": "Sed et augue lorem. In sit amet placerat arcu. Mauris volutpat ipsum ac justo mollis vel vestibulum orci gravida. Vestibulum sit amet porttitor odio. Nulla facilisi. Fusce at pretium felis.\n",
+    "description": "Indulge in the ultimate comfort in our Suite Room. Featuring a separate living area, a plush king-sized bed, a spacious bathroom with premium toiletries, and complimentary high-speed internet, this room is ideal for both business and leisure travelers looking for extra space and luxury.",
     "rate": 100
   }
 ]
